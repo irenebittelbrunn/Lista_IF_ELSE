@@ -2,21 +2,29 @@
 <script>
     /*
     PROBLEMA: NOTA PARA CONCEITO
-    Converta a nota para conceito, conforme a tabela abaixo:
-    Nota                     Conceito
-    Entre 10.0 e 9.0            A
-    Entre 8.9 e 8.0             B
-    Entre 7.9 e 7.0             C
-    Entre 6.9 e 6.0             D
-    Entre 5.9 e zero            E
     */
 
-    //ENTRADA
+    // ENTRADA
+    let nota = parseFloat(prompt("Qual a sua nota?"));
 
-    
-    //PROCESSAMENTO
+    // PROCESSAMENTO
+    let conceito;
 
-    
-    //SAÍDA
+    if (nota >= 9.0 && nota <= 10.0) {
+        conceito = "A";
+    } else if (nota >= 8.0 && nota < 9.0) {
+        conceito = "B";
+    } else if (nota >= 7.0 && nota < 8.0) {
+        conceito = "C";
+    } else if (nota >= 6.0 && nota < 7.0) {
+        conceito = "D";
+    } else if (nota >= 0.0 && nota < 6.0) {
+        conceito = "E";
+    } else {
+        alert("Nota inválida! Digite um valor entre 0.0 e 10.0.");
+        throw "Erro: Nota fora do intervalo válido.";
+    }
 
+    // SAÍDA
+    alert("A nota " + nota.toFixed(1) + " corresponde ao conceito: " + conceito);
 </script>

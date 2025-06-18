@@ -1,111 +1,98 @@
 <script>
-
-      /*
+    /*
     PROBLEMA: OPERAÇÃO MATEMÁTICA
-    Faça um script que leia 2 números e em seguida pergunte ao usuário qual operação ele deseja realizar. O resultado da operação deve ser acompanhado de uma frase que diga se o número é:
-    - par ou ímpar;
-    - positivo ou negativo;
-    - inteiro ou decimal.
     */
 
-    //ENTRADA
-    const numeroUm = Number(prompt("Informe um numero: "));
-    const numeroDois = Number(prompt("Informe o segundo numero:"));
-    const operacao = prompt("Informe a operação que você deseja realizar - Responda com + (para adição), - (para subtração), x (para multiplicação) e / (para divisão)");
-    const resultado = ""
-    const negativo = resultado < 0
-    //PROCESSAMENTO
+    // ENTRADA
+    let num1 = parseFloat(prompt("Digite o primeiro número:"));
+    let num2 = parseFloat(prompt("Digite o segundo número:"));
+    let operacao = prompt("Qual operação deseja realizar? (+para adição, -para subtração, *para multiplicação, /para divisão)");
 
-    if (operacao == "+") {
-        document.write(`O resultado da operação sera ${resultado = numeroUm + numeroDois}. `)
-        if (resultado < 0) {
-            document.write(` O Numero é negativo`)
-        }
-        if (resultado > 0) {
-            document.write(` O Numero é positivo`)
-        }
-        if (resultado % 2 == 0) {
-            document.write(` O número é par `)
-            if (resultado == parseInt(resultado)) {
-                document.write("Numero inteiro!")
-            }
-            else {
-                document.write(` Numero Decimal`)
-            }
-        }
-        else
-            document.write(` O número é impar`)
+    // PROCESSAMENTO
+    let resultado;
+    let mensagem = "";
+
+    if (operacao === "+") {
+        resultado = num1 + num2;
+
     }
-    if (operacao == "-") {
-        document.write(`O resultado da operação sera ${resultado = numeroUm - numeroDois}. `)
-        if (resultado < 0) {
-            document.write(` O Numero é negativo`)
-        }
-        if (resultado > 0) {
-            document.write(` O Numero é positivo`)
-        }
-        if (resultado % 2 == 0) {
-            document.write(` O número é par `)
-            if (resultado == parseInt(resultado)) {
-                document.write("Numero inteiro!")
-            }
-            else {
-                document.write(` Numero Decimal`)
-            }
-        }
-        else
-            document.write(` O número é impar`)
-    }
-    if (operacao == "x") {
-        document.write(`O resultado da operação sera ${resultado = numeroUm * numeroDois}. `)
-        if (resultado < 0) {
-            document.write(` O Numero é negativo`)  
-        alert(`Informe o que é pedido`)
-    }
-        }
-        if (resultado > 0) {
-            document.write(` O Numero é positivo`)
-        }
-        if (resultado % 2 == 0) {
-
-            document.write(` O número é par `)
-            if (resultado == parseInt(resultado)) {
-                document.write("Numero inteiro!")
-            }
-            else {
-                document.write(` Numero Decimal`)
-            }
-        }
-
-    if (operacao == "/") {
-        document.write(`O resultado da operação sera ${resultado = numeroUm / numeroDois}. `)
-        if (resultado < 0) {
-            document.write(` O Numero é negativo`)
-        }
-        if (resultado > 0) {
-            document.write(` O Numero é positivo`)
-        }
-        if (resultado % 2 == 0)
-            document.write(` O número é par `)
-        if (resultado == parseInt(resultado)) {
-            document.write("Numero inteiro!")
-        }
-        else {
-            document.write(` Numero Decimal`)
-        }
-    }
-    else {
-        document.write(` O número é impar`)
-    }
-
-    //SAÍDA
-
-</script>
-
-
-    //PROCESSAMENTO
-
     
-    //SAÍDA
+    else if (operacao === "-") {
+        resultado = num1 - num2;
 
+    }
+    
+    else if (operacao === "*") {
+        resultado = num1 * num2;
+
+    }
+    
+    else if (operacao === "/") {
+        if (num2 !== 0) {
+            resultado = num1 / num2;
+        
+        }
+        
+        else {
+            alert("Divisão por zero não é permitida.");
+        
+        }
+    
+    }
+    
+    else {
+        alert("Operação inválida.");
+    
+    }
+
+    if (resultado !== undefined) {
+        mensagem += "Resultado da operação: " + resultado + "\n";
+
+        // Verifica se é par ou ímpar (aplica só para inteiros)
+        if (Number.isInteger(resultado)) {
+            if (resultado % 2 === 0) {
+                mensagem += "O número é par.\n";
+            }
+            
+            else {
+                mensagem += "O número é ímpar.\n";
+           
+            
+            }
+        }
+        
+        else {
+            mensagem += "O número não é inteiro, portanto não pode ser classificado como par ou ímpar.\n";
+        
+        }
+
+        // Verifica se é positivo, negativo ou zero
+        if (resultado > 0) {
+            mensagem += "O número é positivo.\n";
+        }
+        
+        else if (resultado < 0) {
+            mensagem += "O número é negativo.\n";
+        
+        }
+        
+        else {
+            mensagem += "O número é zero.\n";
+        }
+
+        // Verifica se é inteiro ou decimal
+        if (Number.isInteger(resultado)) {
+            mensagem += "O número é inteiro.";
+        
+        }
+        
+        else {
+            mensagem += "O número é decimal.";
+        
+        }
+
+        // SAÍDA
+        alert(mensagem);
+        
+    }
 </script>
